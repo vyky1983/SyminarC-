@@ -17,10 +17,9 @@ if(num2>num1)
 if (num2 == 0)
 {
     WriteLine("На ноль делить нельзя");
+    return;
 }
-else
-{
-    int div = num1 % num2;
+int div = num1 % num2;
     if (div == 0)
     {
         WriteLine($"{num1} кратно {num2}");
@@ -29,4 +28,4 @@ else
     {
         WriteLine($"Остаток от деления {num1} на {num2}: {div} ");
     }
-}
+
