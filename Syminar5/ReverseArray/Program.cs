@@ -2,10 +2,10 @@
 Clear();
 
 WriteLine("Введите размер массива, мин и макс значение через пробел:");
-string[] parameters=ReadLine()!.Split(new char[]{' ','#',','},StringSplitOptions.RemoveEmptyEntries);
+string[] parameters=ReadLine()!.Split(new char[]{' ',' ',','},StringSplitOptions.RemoveEmptyEntries);
 int[] array=GetArray(int.Parse(parameters[0]),int.Parse(parameters[1]),int.Parse(parameters[2]));
 string strArray=String.Join(",",array);
-WriteLine($"[{String.Join("#",array)}]");
+WriteLine($"[{String.Join(" ",array)}]");
 
 WriteLine($"[{String.Join(",",ReverseArray1(array))}]");
 
