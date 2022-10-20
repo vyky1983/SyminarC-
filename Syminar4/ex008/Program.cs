@@ -1,62 +1,47 @@
-﻿using static System.Console;
+﻿
+// Напишите метод, который считает количесвто нулей в бинарном массиве
 
+using static System.Console;
 Clear();
+WriteLine("Введите длину массива: ");
+int l = int.Parse(ReadLine()!);
+int[] array = GetBinaryArray(l);
+PrintArray(array);
+WriteLine($"Количество нулей в массиве равно {ZeroCount(array)}");
 
-/* создать программу которая заполняет масив 0 и 1 8 элемментов*/
 
-System.Console.WriteLine("Введите размер масива ");
-int size = Convert.ToInt32(ReadLine());
-int[] array = GetArr(size);
-PrintArr(array);
-System.Console.WriteLine();
-System.Console.WriteLine($"Number of zero {countZeros(array)}");
-System.Console.WriteLine("Input number digit --> ");
-int digit = Convert.ToInt32(ReadLine());
-System.Console.WriteLine($"Number of Dogit {digit}: {CountDigits(array, digit)}");
 
-int[] GetArr(int Length)
+
+
+
+int[] GetBinaryArray(int length)
 {
-    int[] arr = new int[size];
-    for (int i = 0; i < arr.Length; i++)
+    Random rnd = new Random();
+    int[] result = new int[length];
+    for (int i = 0; i < length-1; i++)
     {
-        arr[i] = new Random().Next(0, 2);
-    }
-    return arr;
-}
-
-void PrintArr(int[] inArr)
-{
-    Write("[");
-    for (int i = 0; i < inArr.Length - 1; i++)
-    {
-        Write($"{inArr[i]},");
-    }
-    Write($"{inArr[inArr.Length - 1]}]");
-}
-
-int countZeros(int[] inArr)
-{
-    int result = 0;
-    for (int i = 0; i < inArr.Length; i++)
-    {
-        if (inArr[i] == 0)
-        {
-            result += 1;
-        }
+        result[i] = rnd.Next(0,2);
     }
     return result;
 }
 
-int CountDigits(int[] inArr, int num1)
+void PrintArray(int[] inArray)
+{
+    Write("[ ");
+    for (int i = 0; i < inArray.Length; i++)
+    {
+        Write($"{inArray[i]},");
+    }
+   Write("\b ");
+    WriteLine("]");
+}
+
+int ZeroCount(int[] inArray)
 {
     int result = 0;
-
-    for (int i = 0; i < inArr.Length; i++)
+    for (int i = 0; i < inArray.Length; i++)
     {
-        if (inArr[i] == num1)
-        {
-            result += 1;
-        }
+        if(inArray[i]==0) result++;
     }
     return result;
 }

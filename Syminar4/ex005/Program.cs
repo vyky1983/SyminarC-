@@ -1,13 +1,30 @@
 ﻿using static System.Console;
+
 Clear();
-System.Console.WriteLine(" ");
 
-int GetFactorial(int num1)
-{
-for (int i = 1; i <= num1; i++)
-{
-int result=result*i;
+/* создать программу которая заполняет масив 0 и 1 8 элемментов*/
+//System.Console.WriteLine();
+System.Console.WriteLine("Введите размер масива ");
+int size = Convert.ToInt32(ReadLine());
+int[] array =GetArr(size);
+PrintArr(array);
 
+int[] GetArr(int Length)
+{
+    int[] arr = new int[size];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = new Random().Next(0, 2);
+    }
+    return arr;
 }
-return result;
+
+void PrintArr(int[] inArr)
+{
+Write("[");
+ for (int i = 0; i < inArr.Length-1; i++)
+ {
+ Write($"{inArr[i]},");
+ }
+Write($"{inArr[inArr.Length-1]}]");
 }
